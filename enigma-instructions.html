@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8">
+ <title>Enigma machine</title>
+ <style>@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil');</style>
+<style>
+
+
+BODY {
+font-family: courier new;
+color: white;
+text-align:left;
+background-color: #333333;
+padding: 20px;
+}
+
+IMG {
+display: block;
+margin:5px auto;
+}
+
+.H1 {
+font-family: 'Allerta Stencil', sans-serif;
+color: white;
+font-size: 20pt;
+font-weight: normal;
+}
+
+#footer {
+  border-top: 1px white dashed;
+  background-color: #333333; 
+  color:white;
+  padding: 4px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-family: courier new;
+}
+
+A {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+</style> 
+ <script>
+ function enigmaWindow() {
+	window.open("./enigma-M3.html",'_blank','toolbar=no, menubar=no, location=no, resizable=yes, addressbar=no,  width=800, height=600');
+}
+ </script>
+</head>
+<body>
+<img src="./images/enigma-banner.jpg" width="100%">
+ <H1>Code Breaking during WWII</H1>
+ 
+ <p> The Enigma machines are a series of electro-mechanical rotor cipher machines. The first machines were invented at the end of World War I by German engineer Arthur Scherbius and were mainly used to protect commercial, diplomatic and military communication. Enigma machines became more and more complex and were heavily used by the German army during World War II to encrypt radio signals.</p>
+
+ <p>You you will be able to use this machine to both encrypt or decrypt Enigma messages (Enigma encryption is symmetric, which means that the same settings can be used to both encrypt or decrypt a message).</p>
+ 
+ <p>Use our <a onclick="enigmaWindow();">online Enigma emulator</a> to start encoding or decoding secret messages.</p>
+<img src="./images/enigma-logo.png" width=160 onClick="enigmaWindow();" style="cursor: pointer; margin-top:10px;">
+
+ <H1>Inside the Enigma</H1>
+ The enigma machine is a fairly complex encryption machine which consists of four main sections:
+ <img src="./images/enigma-how-to.png">
+ 
+<H1>The Keyboard</H1>
+<p>The keyboard is used to retrieve the user input. The Enigma machine is a symmetric encryption machine. Which means that it can be used to both encrypt or decrypt a message using the same settings. The keyboard is hence used to either enter the plaintext that needs to be encrypted or the ciphertext that needs to be decrypted.</p>
+
+<p>They keyboard consists of 26 keys for each letter of the alphabet. This means that encrypted messages will be joined up without any spaces or punctuation signs.</p>
+
+<p>Notice how the keyboard starts with the letters QWERTZ instead of QWERTY. This is due to the fact that in the German language, the letter Z is more often used than the letter.</p> 
+ 
+<H1>The plugboard</H1>
+<p>Once a key is pressed on the keyboard, it goes through the plugboard which provides the first stage of the encryption process. It is based on the principles of a substitution cipher, a form of transposition encryption.</p>
+
+<p>To setup the keyboards, short wires are used to connect pairs of letters that will be permuted. For instance on the picture below the letter W will be replaced with a D and the letter D with a W as a (red) wire is used to connect these two letters/plugs. Similarly, letter V will become letter Z and Z will become V.</p> 
+
+<img src="./images/plugboard.png">
+<p>In a code book the plugboard settings would be recorded as follows: DW VZ</p>
+
+<H1>The Rotors</H1>
+<p>After the plugboard, the letter goes through the three rotors in order (from right to left), each of them changing it differently using a combination of transposition cipher and Caesar cipher! On the engima M3 there are three rotor slots and five rotors to choose from. Each rotor is identified using a Roman numeral from I to V. This provides a few settings of the Enigma machine: which rotors to use, and in which order to position them. In a code book this seeting would be recorded as IV II III (Left, Middle and Right rotors).</P>
+
+<p>Each of the five rotors encrypt the letter differently using a transposition/permutation cipher and can be connected in the Enigma machine with a different <strong>Ring setting</strong>. Another setting is the initial position of the rotors: Which letters are you going to set each rotor to begin with (e.g. A/B/C../Z sometimes recorded in a codebook using numbers (01 for A, 02 for B up to 26 for Z). This creates a Caesar Shift (Caesar Cipher). On an Enigma machine, you can change the position of the rotors by turning the three wheels.</p>
+
+<p>Different versions of Enigma (e.g. M4) included four rotors which made the encryption process and the number of possible settings even bigger.
+ 
+<p>On our Enigma M3 emulator, you can click on the rotors to access the Enigma rotors settings:</p>
+<img src="./images/enigma-Rotors.png">
+<img src="./images/enigma-RotorsSettings.png">
+
+<p>What makes the Enigma code particularly difficult to crack is that every time a key is pressed, the rotor on the right turns by 1 letter. Which means that the encryption settings constantly changes for each letter of a message. It also means that a single plaintext letter would be encrypted differently depending on its position in the message.</p>
+
+<p>The rotors are also connected to each other so that when the rotor positioned on the right reach a specific letter, it triggers the rotor in the middle to rotate by one letter. Similarly when the rotor in the middle reaches a specific letter it triggers the rotor on the left to turn by one letter.</p>
+
+<p>You will find more information on how the rotors operate on the <a href="https://en.wikipedia.org/wiki/Enigma_rotor_details" target="_blank">following wikipedia page</a>.</p>
+
+<H1>The Reflector</H1>
+<p>The reflector is another type of rotor inside the machine. Once the letter has gone through the three rotors from right to left, the reflector will reflect the electrical current back through the rotors, sending the encrypted letter through the rotors from left to right for another 3 stages of encryption and then through the plugboard again for a final substitution cipher. When going through the reflector, a permutation cipher is also applied to the letter.</p>
+
+<p>Different versions of reflectors were used on different versions of Enigma machines. Each reflector would apply a different permutation cipher. Enigma M3 machines were equipped with either a UKW-B or UKW-C reflector. You can apply these two reflectors in the rotor settings window of our emulator (see screenshot above).</p>
+
+<p>The diagram below shows the journey of a letter through the encryption process of an Enigma M3.</p>
+<img src="./images/enigma-journey-of-a-letter.png">
+
+<H1>The lampboard</H1>
+The lampboard is the  final stage of the encryption process and is used to show the output (encrypted letter). It consists of 26 light bulbs, one for each letter of the alphabet.
+
+<H1>Welchman-Turing Bombe</H1>
+	
+ <p>One of the key objectives for the Allies during WWII was to find a way to break the code to be able to decrypt German communications. A team of Polish cryptanalysts was the first to break Enigma codes as early as 1932, however the German used more advanced Enigma machines making it virtually impossible to break the Enigma code using traditional methods. In 1939, with the prospect of war, the Poles decided to share their findings with the British. Dilly Knox, one of the former British World War I Codebreakers, set up an Enigma Research Section at Bletchley Park, England. He worked alongside Tony Kendrick, Peter Twinn, Alan Turing and Gordon Welchman. Together they developed a complex machine called the Bombe used to workout Enigma settings from intercepted German communications. The first wartime Enigma messages were broken in January 1940. Being able to decrypt German messages gave the Allies valuable information which has had a major impact on the outcomes of WWII.</p>
+
+
+	
+ <div id="footer">Enigma Machine </div>
+
+<script  src="./js/index.js"></script>
+<script>applySettings();</script>
+
+</body>
+</html>
